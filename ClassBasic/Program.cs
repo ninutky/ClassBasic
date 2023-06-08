@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.AccessControl;
 
 namespace MyApp
 {
@@ -26,11 +27,22 @@ namespace MyApp
                 Console.WriteLine(item);
             }
             Console.WriteLine("===================");
+            /*
             foreach (var item in list)
             {
-                list.Remove(item); 
+                if(item.grade > 1)
+                {
+                    list.Remove(item);
+                }
             
-            
+            }
+            */
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                if (list[i].grade > 1)
+                {
+                    list.RemoveAt(i);
+                }
             }
 
             foreach (var item in list)
